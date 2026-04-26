@@ -1,6 +1,9 @@
-import React from "react";
+import React, { Suspense, lazy } from "react";
 import useReveal from "../hooks/useReveal";
+import useInView from "../hooks/useInView";
 import { Crosshair, MessagesSquare, Workflow, LineChart } from "lucide-react";
+
+const NetworkNodes3D = lazy(() => import("./three/NetworkNodes3D"));
 
 const PHASES = [
   {
@@ -53,9 +56,23 @@ function PhaseRow({ n, title, body, Icon, testId }) {
 
 export default function Framework() {
   const headRef = useReveal();
+  const [bgRef, bgInView] = useInView("400px");
   return (
-    <section id="framework" className="relative py-24 md:py-32 bg-[#080808]">
-      <div className="max-w-7xl mx-auto px-6">
+    <section
+      id="framework"
+      ref={bgRef}
+      className="relative py-24 md:py-32 bg-[#080808] overflow-hidden"
+    >
+      {/* 3D network background */}
+      <div className="absolute inset-0 opacity-50 pointer-events-none">
+        <Suspense fallback={null}>
+          {bgInView && <NetworkNodes3D nodeCount={32} linkDistance={1.6} />}
+        </Suspense>
+      </div>
+      {/* Vignette to keep copy readable */}
+      <div className="absolute inset-0 bg-gradient-to-b from-[#080808] via-transparent to-[#080808] pointer-events-none" />
+
+      <div className="relative max-w-7xl mx-auto px-6">
         <div ref={headRef} className="reveal grid grid-cols-1 md:grid-cols-12 gap-8 mb-8">
           <div className="md:col-span-7">
             <p className="text-xs uppercase tracking-[0.22em] text-[#6BE05A] mb-4">— The Framework</p>
