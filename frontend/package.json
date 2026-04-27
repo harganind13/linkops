@@ -1,33 +1,22 @@
 {
-  "name": "frontend",
-  "version": "0.1.0",
+  "name": "linkops-frontend",
+  "version": "1.0.0",
   "private": true,
   "dependencies": {
     "ajv": "8.12.0",
     "ajv-formats": "2.1.1",
-    "ajv-keywords": "5.1.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-scripts": "5.0.1"
   },
   "scripts": {
-    "start": "craco start",
-    "build": "craco build",
-    "test": "craco test",
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test",
     "eject": "react-scripts eject"
   },
-  "devDependencies": {
-    "@craco/craco": "^7.1.0",
-    "autoprefixer": "^10.4.20",
-    "postcss": "^8.4.49",
-    "tailwindcss": "^3.4.17",
-    "fork-ts-checker-webpack-plugin": "^9.0.0"
-  },
-"overrides": {
+  "overrides": {
     "ajv": "8.12.0",
-    "ajv-formats": "2.1.1",
-    "ajv-keywords": "5.1.0",
-    "fork-ts-checker-webpack-plugin": "^9.0.0",
-    "schema-utils": "4.0.0"
+    "ajv-formats": "2.1.1"
   }
 }
