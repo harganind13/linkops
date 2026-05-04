@@ -27,7 +27,12 @@
     "tailwind-merge": "^2.5.0",
     "three": "^0.168.0",
     "tailwindcss-animate": "^1.0.7"
-    },
+  },
+  "devDependencies": {
+    "tailwindcss": "^3.4.0",
+    "autoprefixer": "^10.4.0",
+    "postcss": "^8.4.0"
+  },
   "scripts": {
     "build": "react-scripts build"
   }
